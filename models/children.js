@@ -22,10 +22,11 @@ module.exports = (sequelize, DataTypes) => {
     weight: DataTypes.INTEGER,
     height: DataTypes.INTEGER,
     headCirc: DataTypes.INTEGER,
-    status: DataTypes.STRING
+    status: DataTypes.STRING,
+    id_parent: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Children',
+    modelName: 'Childrens',
   });
   return Children;
 };
