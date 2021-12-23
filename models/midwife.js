@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   midwife.init({
-    id: DataTypes.INTEGER,
     name: DataTypes.STRING
   }, {
     sequelize,

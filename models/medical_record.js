@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   medical_record.init({
-    id: DataTypes.INTEGER,
     id_children: DataTypes.INTEGER,
     id_treatment: DataTypes.INTEGER,
     id_midwife: DataTypes.INTEGER,

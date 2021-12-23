@@ -14,13 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   treatment.init({
-    id: DataTypes.INTEGER,
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     time: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'treatment',
+    modelName: 'Treatments',
   });
   return treatment;
 };
