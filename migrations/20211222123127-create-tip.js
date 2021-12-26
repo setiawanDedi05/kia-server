@@ -14,6 +14,15 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
+      nutrition: {
+        type: Sequelize.TEXT
+      },
+      stimulation: {
+        type: Sequelize.TEXT
+      },
+      tips: {
+        type: Sequelize.TEXT
+      },
       phase: {
         type: Sequelize.STRING
       },

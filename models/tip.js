@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
   Tip.init({
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
+    nutrition: DataTypes.TEXT,
+    stimulation: DataTypes.TEXT,
+    tips: DataTypes.TEXT,
     phase: DataTypes.STRING
   }, {
     sequelize,
