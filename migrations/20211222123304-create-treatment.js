@@ -11,14 +11,8 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.TEXT
-      },
-      status: {
-        type: Sequelize.STRING
-      },
-      time: {
-        type: Sequelize.STRING
+      month: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
