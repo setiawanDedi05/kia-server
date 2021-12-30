@@ -17,9 +17,7 @@ class TipsController{
       const { age } =  req.params
       const result = await Tip.findOne({
         where: {
-          phase : {
-            [Op.gte] : age
-          }
+          phase : age
         }
       })
       res.status(201).json(result)
