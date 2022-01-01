@@ -10,7 +10,7 @@ module.exports = {
      */
     await queryInterface.addColumn('Childrens', 'id_parent',
       {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       })
   },
 

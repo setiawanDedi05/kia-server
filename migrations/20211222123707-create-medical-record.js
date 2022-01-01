@@ -23,6 +23,15 @@ module.exports = {
       imgUrl: {
         type: Sequelize.STRING
       },
+      height: {
+        type: Sequelize.FLOAT
+      },
+      weight: {
+        type: Sequelize.FLOAT
+      },
+      headCirc: {
+        type: Sequelize.FLOAT
+      },
       note: {
         type: Sequelize.TEXT
       },

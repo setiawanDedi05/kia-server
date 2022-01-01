@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     height: DataTypes.INTEGER,
     headCirc: DataTypes.INTEGER,
     status: DataTypes.STRING,
-    id_parent: DataTypes.INTEGER
+    id_parent: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Childrens',
