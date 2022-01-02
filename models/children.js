@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
   };
   Children.init({
     name: DataTypes.STRING,
-    nik: DataTypes.INTEGER,
+    nik: DataTypes.STRING,
     gender: DataTypes.STRING,
     pob: DataTypes.STRING,
     dob: DataTypes.DATE,
-    weight: DataTypes.INTEGER,
-    height: DataTypes.INTEGER,
-    headCirc: DataTypes.INTEGER,
+    weight: DataTypes.FLOAT,
+    height: DataTypes.FLOAT,
+    headCirc: DataTypes.FLOAT,
     status: DataTypes.STRING,
     id_parent: DataTypes.STRING
   }, {

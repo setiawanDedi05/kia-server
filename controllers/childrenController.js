@@ -35,9 +35,10 @@ class Children {
     }
 
     static async addChildren(req, res) {
-        const {name, nik, pob, dob, weight, height, headCirc, gender, status, id_parent} = req.body
+        const { name, nik, pob, dob, weight, height, headCirc, gender, status, id_parent } = req.body
+        console.log(parseFloat(weight), weight);
         try {
-            const result = await Childrens.create({name, nik:+nik, pob, dob, weight:+weight, height:+height, headCirc: +headCirc, gender, status, id_parent})
+            const result = await Childrens.create({name, nik, pob, dob, weight:parseFloat(weight), height:parseFloat(height), headCirc: parseFloat(headCirc), gender, status, id_parent})
             console.log(result);
             res.status(200).json(result)
         } catch (error) {

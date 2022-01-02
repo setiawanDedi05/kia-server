@@ -13,7 +13,7 @@ module.exports = {
         allowNull: true
       },
       nik: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: true
       },
       gender: {
