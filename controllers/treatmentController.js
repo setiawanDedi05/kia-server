@@ -1,20 +1,29 @@
 const {Treatments} = require('../models/')
+const { Op } = require("sequelize")
 
 class Treatment{
 
     static async getAll(req, res){
         try {
-            const result = await Treatments.findAll()
+            const result = await Treatments.findAll({limit:1})
             res.status(201).json({result})
         } catch (error) {
             res.status(500).json({error})
         }
     }
 
-    static async getOne(req, res) {
+    static async getPerMonth(req, res) {
+        console.log(+req.params.age);
         try {
-            const result = await Treatments.findOne({ id: req.params.id })
-            res.status(201).json({result})
+            const result = await Treatments.findAll({
+                where: {
+                    month: {
+                    [Op.lte]:+req.params.age
+                }
+                }
+            })
+            console.log(result);
+            res.status(201).json(result)
         } catch (error) {
             res.status(500).json({error})
         }
