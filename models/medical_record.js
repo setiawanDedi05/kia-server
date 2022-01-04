@@ -19,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
     id_midwife: DataTypes.INTEGER,
     place: DataTypes.STRING,
     imgUrl: DataTypes.STRING,
-    note: DataTypes.TEXT
+    note: DataTypes.TEXT,
+    height: DataTypes.FLOAT,
+    weight: DataTypes.FLOAT,
+    headCirc: DataTypes.FLOAT
   }, {
     sequelize,
     modelName: 'MedicalRecord',
