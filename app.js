@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.port || 4002
+const port = process.env.PORT || 4002
 const cors = require('cors')
 const router = require('./routers')
 app.use(cors())
