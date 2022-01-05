@@ -9,6 +9,7 @@ app.use(express.json())
 
 app.use(router)
 
-app.listen(port, () => {
+if(process.env.NODE_ENV === 'test') module.exports = app
+else app.listen(port, () => {
     console.log("I LOVE KIA "+ port);
 })

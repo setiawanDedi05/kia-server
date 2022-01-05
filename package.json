@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "SET NODE_ENV=test&& jest --runInBand --detectOpenHandles --forceExit --coverage",
+    "setup:test": "sequelize-cli db:drop --env test && sequelize-cli db:create --env test && sequelize-cli db:migrate --env test && sequelize-cli db:seed:all --env test"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.12.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^27.4.7",
+    "supertest": "^6.1.6"
+  }
 }
