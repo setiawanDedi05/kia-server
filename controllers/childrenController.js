@@ -27,7 +27,7 @@ class Children {
 
     static async getOne(req, res) {
         try {
-            const result = await Childrens.findOne({ id: req.params.id })
+            const result = await Childrens.findOne({where:  {id: req.params.id }})
             res.status(201).json({ result })
         } catch (error) {
             res.status(500).json({ error })
