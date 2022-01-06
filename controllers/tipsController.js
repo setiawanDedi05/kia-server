@@ -20,7 +20,7 @@ class TipsController{
           phase : age
         }
       })
-      res.status(201).json(result)
+      res.status(200).json({result})
     } catch (error) {
       res.status(500).json({error})
     }
@@ -29,8 +29,7 @@ class TipsController{
   static async showAllTips (req, res) {
     try {
       const result = await Tip.findAll()
-      console.log(result);
-      res.status(200).json(result)
+      res.status(200).json({result})
     } catch (error) {
       res.status(500).json(error)
     }
