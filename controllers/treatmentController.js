@@ -5,7 +5,7 @@ class Treatment{
     static async getAllTreatment(req, res) {
         try {
             const result = await Treatments.findAll()
-            res.status(201).json({result})
+            res.status(200).json({result})
         } catch (error) {
             res.status(500).json({error})
         }
@@ -21,15 +21,13 @@ class Treatment{
             })
             let result = []
             treatments.forEach((treat, key) => {
-                    console.log(medicalRecord[key] === undefined);
+                    // console.log(medicalRecord[key] === undefined);
                     if (medicalRecord[key] === undefined || medicalRecord[key].id_treatment !== treat.id) {
                         result.push(treat)
-                    } else {
-                        console.log(key, "key");
-                    }
+                    } 
             })
-            console.log(result);
-            res.status(201).json(result[0])
+            let response = result[0]
+            res.status(200).json({response})
         } catch (error) {
             res.status(500).json({error})
         }
@@ -39,10 +37,8 @@ class Treatment{
         const data = req.body
         try {
             const result = await Treatments.create(data)
-            console.log(result);
-            res.status(200).json(result)
+            res.status(201).json({result})
         } catch (error) {
-            console.log(error);
             res.status(500).json(error)
         }
     }
