@@ -129,7 +129,7 @@ describe('POST /medicalRecord', function() {
             .set('Content-Type', 'application/json')
             .send({ id_children: 1, id_treatment: 1, id_midwife: midWifes.id, place: 'depok', height: 51, weight: 26, headCirc: 20, note: 'Sudah mendapat dosis sesuai umur, sebaiknya banyak makan sehat dan bergizi.'})
             .then(({body, status}) => {
-                expect(status).toBe(201)
+                expect(status).toBe(200)
                 expect(body).toHaveProperty('result')
                 console.log(status);
                 console.log(body);

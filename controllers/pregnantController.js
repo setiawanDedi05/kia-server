@@ -3,7 +3,7 @@ class PregnantController {
     static async getAll(req, res) {
         try {
             const result = await Pregnants.findAll()
-            res.status(201).json({ result })
+            res.status(200).json({ result })
         } catch (error) {
             res.status(500).json({ error })
         }
@@ -17,8 +17,7 @@ class PregnantController {
                     status: 'janin'
                 }
             })
-            console.log(result);
-            res.status(201).json({ result })
+            res.status(200).json({ result })
         } catch (error) {
             res.status(500).json({ error })
         }
@@ -29,9 +28,8 @@ class PregnantController {
         
         try {
             const result = await Pregnants.create({id_parent, status, lastMens})
-            res.status(200).json(result)
+            res.status(201).json({result})
         } catch (error) {
-            console.log(error);
             res.status(500).json(error)
         }
     }
