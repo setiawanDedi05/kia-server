@@ -3,7 +3,7 @@ class MedicalRecordController {
     static async getAll(req, res) {
         try {
             const result = await MedicalRecord.findAll()
-            res.status(201).json({ result })
+            res.status(200).json({ result })
         } catch (error) {
             res.status(500).json({ error })
         }
@@ -16,8 +16,7 @@ class MedicalRecordController {
                     id_children: req.params.idChildren
                 }
             })
-            console.log(result);
-            res.status(201).json({result})
+            res.status(200).json({result})
         } catch (error) {
             res.status(500).json({ error })
         }
@@ -41,11 +40,10 @@ class MedicalRecordController {
                     }
                 })
                 if (updateData) {
-                    res.status(200).json(result)
+                    res.status(201).json({result})
                 }
             }
         } catch (error) {
-            console.log(error);
             res.status(500).json(error)
         }
     }
