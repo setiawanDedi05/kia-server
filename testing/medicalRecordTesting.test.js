@@ -93,8 +93,6 @@ beforeAll((done) => {
             .then(({body, status}) => {
                 expect(status).toBe(200)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
                 done()
             })
             .catch(err => {
@@ -112,8 +110,24 @@ describe('GET /medicalRecord/:idChildren', function() {
             .then(({body, status}) => {
                 expect(status).toBe(200)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
+
+                done()
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    })
+})
+
+describe('GET /medicalRecord/:idChildren', function() {
+    it(`success fetching all medical record on one children by ID`, function(done) {
+        request(app)
+            .get('/medicalRecord/asda')
+            .set('Content-Type', 'application/json')
+            .then(({body, status}) => {
+                expect(status).toBe(500)
+                expect(body).toHaveProperty('error')
+
                 done()
             })
             .catch(err => {
@@ -131,8 +145,7 @@ describe('POST /medicalRecord', function() {
             .then(({body, status}) => {
                 expect(status).toBe(200)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
+
                 done()
             })
             .catch(err => {
@@ -140,3 +153,22 @@ describe('POST /medicalRecord', function() {
             })
     })
 })
+
+describe('POST /medicalRecord', function() {
+    it(`success add medical records`, function(done) {
+        request(app)
+            .post('/medicalRecord')
+            .set('Content-Type', 'application/json')
+            .send({})
+            .then(({body, status}) => {
+                expect(status).toBe(500)
+                expect(body).toHaveProperty('error')
+
+                done()
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    })
+})
+

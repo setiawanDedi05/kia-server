@@ -44,8 +44,6 @@ describe('GET /children', function() {
             .then(({body, status}) => {
                 expect(status).toBe(200)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
                 done()
             })
             .catch(err => {
@@ -63,6 +61,23 @@ describe('GET /children/:id_parent', function() {
             .then(({body, status}) => {
                 expect(status).toBe(200)
                 expect(body).toHaveProperty('result')
+                done()
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    })
+})
+
+describe('GET /children/:id_parent', function() {
+    //#1 GET ALL CHILDREN
+    it(`error get childrens by id`, function(done) {
+        request(app)
+            .get('/children/asdasd')
+            .set('Content-Type', 'application/json')
+            .then(({body, status}) => {
+                expect(status).toBe(404)
+                expect(body).toHaveProperty('error')
                 done()
             })
             .catch(err => {
@@ -113,8 +128,23 @@ describe('POST /children', function() {
             .then(({body, status}) => {
                 expect(status).toBe(201)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
+                done()
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    })
+})
+
+describe('POST /children', function() {
+    it(`success add children`, function(done) {
+        request(app)
+            .post('/children')
+            .set('Content-Type', 'application/json')
+            .send('')
+            .then(({body, status}) => {
+                expect(status).toBe(500)
+                expect(body).toHaveProperty('error')
                 done()
             })
             .catch(err => {

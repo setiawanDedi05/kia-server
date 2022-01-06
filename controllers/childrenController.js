@@ -1,27 +1,57 @@
 const {Childrens} = require('../models/')
 class Children {
-    static async getAll(req, res) {
-        try {
-            const result = await Childrens.findAll()
+    // static async getAll(req, res) {
+    //     try {
+    //         const result = await Childrens.findAll()
+    //         res.status(200).json({ result })
+    //     } catch (error) {
+    //         res.status(500).json({ error })
+    //     }
+    // }
+
+    static getAll(req, res) {
+
+            Childrens.findAll()
+        .then((result) => {
             res.status(200).json({ result })
-        } catch (error) {
-            res.status(500).json({ error })
-        }
+        })
+        // .catch (error => {
+        //     res.status(500).json({ error })
+        // }) 
     }
 
-    static async getAllByIdParent(req, res) {
-        try {
-            const result = await Childrens.findAll({
+    // static async getAllByIdParent(req, res, next) {
+    //     try {
+    //         const result = await Childrens.findAll({
+    //             where: {
+    //                 id_parent:req.params.id_parent
+    //             }
+    //         })
+    //         if(result) {
+    //             res.status(200).json({result})
+    //         }
+    //     } catch (error) {
+    //         res.status(404).json({error})
+    //     }
+    // }
+    static getAllByIdParent(req, res, next) {
+            Childrens.findAll({
                 where: {
                     id_parent:req.params.id_parent
                 }
             })
-            console.log(result);
-            res.status(200).json({result})
-        } catch (error) {
-            res.status(500).json({error})
+            .then((result) => {
+                if(result.length>0) {
+                    res.status(200).json({result})
+                } else {
+                    throw 'no result'
+                }
+            })
+            .catch (error => {
+                res.status(404).json({error})
+            }) 
         }
-    }
+    
 
     static async getOne(req, res) {
         try {

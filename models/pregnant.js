@@ -9,12 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
-    }
+    // static associate(models) {
+    //   // define association here
+    // }
   };
   Pregnant.init({
-    lastMens: DataTypes.STRING,
+    lastMens: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     status: DataTypes.STRING,
     id_parent: DataTypes.STRING
   }, {

@@ -23,7 +23,7 @@ beforeAll((done) => {
     .then(() => {
         return queryInterface.bulkInsert('Pregnants', [{
             id_parent: parent.id, 
-            status: '3 Bulan', 
+            status: 'janin', 
             lastMens: '4 Bulan lalu',
             createdAt: new Date(),
             updatedAt: new Date()
@@ -47,27 +47,6 @@ describe('GET /pregnant', function() {
             .then(({body, status}) => {
                 expect(status).toBe(200)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
-                done()
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    })
-})
-
-describe('GET /pregnant/:idParent', function() {
-    //#1 GET ALL CHILDREN
-    it(`success fetching pregnant mother by ID`, function(done) {
-        request(app)
-            .get('/pregnant/1')
-            .set('Content-Type', 'application/json')
-            .then(({body, status}) => {
-                expect(status).toBe(200)
-                expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
                 done()
             })
             .catch(err => {
@@ -85,8 +64,59 @@ describe('POST /pregnant', function() {
             .then(({body, status}) => {
                 expect(status).toBe(201)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
+                done()
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    })
+})
+
+describe('GET /pregnant/:idParent', function() {
+    //#1 GET ALL CHILDREN
+    it(`success fetching pregnant mother by ID`, function(done) {
+        request(app)
+            .get('/pregnant/'+1)
+            .set('Content-Type', 'application/json')
+            .then(({body, status}) => {
+                expect(status).toBe(200)
+                expect(body).toHaveProperty('result')
+                done()
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    })
+})
+
+describe('GET /pregnant/:idParent', function() {
+    //#1 GET ALL CHILDREN
+    it(`success fetching pregnant mother by ID`, function(done) {
+        request(app)
+            .get('/pregnant/20')
+            .set('Content-Type', 'application/json')
+            .then(({body, status}) => {
+                expect(status).toBe(500)
+                expect(body).toHaveProperty('error')
+                done()
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    })
+})
+
+
+
+describe('POST /pregnant', function() {
+    it(`error add medical records`, function(done) {
+        request(app)
+            .post('/pregnant')
+            .set('Content-Type', 'application/json')
+            .send({id_parent: newparent.id, status: 'janin'})
+            .then(({body, status}) => {
+                expect(status).toBe(500)
+                expect(body).toHaveProperty('error')
                 done()
             })
             .catch(err => {

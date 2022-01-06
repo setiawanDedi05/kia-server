@@ -65,8 +65,7 @@ describe('GET /tips', function() {
             .then(({body, status}) => {
                 expect(status).toBe(200)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
+
                 done()
             })
             .catch(err => {
@@ -83,8 +82,7 @@ describe('GET /tips/:age', function() {
             .then(({body, status}) => {
                 expect(status).toBe(200)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
+
                 done()
             })
             .catch(err => {
@@ -92,6 +90,7 @@ describe('GET /tips/:age', function() {
             })
     })
 })
+
 
 describe('POST /tips', function() {
     it(`success add medical records`, function(done) {
@@ -108,8 +107,7 @@ describe('POST /tips', function() {
             .then(({body, status}) => {
                 expect(status).toBe(201)
                 expect(body).toHaveProperty('result')
-                console.log(status);
-                console.log(body);
+
                 done()
             })
             .catch(err => {
